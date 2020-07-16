@@ -110,6 +110,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private TextView statusView;
   private Button flipButton;
   private Button torchButton;
+  private Button cancelButton;
   private View resultView;
   private Result lastResult;
   private boolean hasSurface;
@@ -193,6 +194,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     statusView = (TextView) findViewById(R.id.status_view);
     flipButton = (Button) findViewById(R.id.flip_button);
     torchButton = (Button) findViewById(R.id.torch_button);
+    cancelButton = (Button) findViewById(R.id.cancel_button);
 
     handler = null;
     lastResult = null;
@@ -693,6 +695,10 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         rawResultString = rawResultString.substring(0, 32) + " ...";
       }
       statusView.setText(getString(resultHandler.getDisplayTitle()) + " : " + rawResultString);
+
+      if (cancelButton.getVisibility() == View.VISIBLE) {
+        cancelButton.setVisibility(View.INVISIBLE);
+      }
     }
 
     if (copyToClipboard && !resultHandler.areContentsSecure()) {
@@ -858,6 +864,17 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
           }
         }
       }
+    }
+
+    if (getIntent().getBooleanExtra(Intents.Scan.SHOW_CANCEL_BUTTON, false)) {
+      cancelButton.setVisibility(View.VISIBLE);
+      cancelButton.setOnClickListener(new Button.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          setResult(RESULT_CANCELED);
+          finish();
+        }
+      });
     }
   }
 

@@ -204,6 +204,8 @@ public final class Intents {
      */
     public static final String ORIENTATION_LOCK = "ORIENTATION_LOCK";
 
+    public static final String SHOW_CANCEL_BUTTON = "SHOW_CANCEL_BUTTON";
+
     private Scan() {
     }
   }

@@ -217,4 +217,13 @@
           android:drawableStart="@drawable/toggle_torch"
           android:visibility="invisible"/>
 
+  <Button style="@style/CancelButton"
+      android:id="@+id/cancel_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom|center_horizontal"
+      android:layout_marginBottom="72dip"
+      android:visibility="invisible"
+      android:text="@string/msg_default_cancel" />
+
 </merge>
