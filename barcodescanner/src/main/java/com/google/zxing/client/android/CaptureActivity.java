@@ -875,6 +875,14 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
           finish();
         }
       });
+
+      String cancelButtonText = getIntent().getStringExtra(Intents.Scan.CANCEL_BUTTON_TEXT);
+      if (cancelButtonText != null) {
+        cancelButton.setText(cancelButtonText);
+
+      } else {
+        cancelButton.setText(R.string.msg_default_cancel);
+      }
     }
   }
 

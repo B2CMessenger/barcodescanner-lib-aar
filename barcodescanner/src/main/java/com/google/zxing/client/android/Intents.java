@@ -206,6 +206,8 @@ public final class Intents {
 
     public static final String SHOW_CANCEL_BUTTON = "SHOW_CANCEL_BUTTON";
 
+    public static final String CANCEL_BUTTON_TEXT = "CANCEL_BUTTON_TEXT";
+
     private Scan() {
     }
   }
