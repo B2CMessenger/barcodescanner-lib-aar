@@ -208,6 +208,8 @@ public final class Intents {
 
     public static final String CANCEL_BUTTON_TEXT = "CANCEL_BUTTON_TEXT";
 
+    public static final String DONT_CLOSE_ON_BACK = "DONT_CLOSE_ON_BACK";
+
     private Scan() {
     }
   }

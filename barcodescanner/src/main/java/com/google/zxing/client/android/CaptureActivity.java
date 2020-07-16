@@ -375,6 +375,10 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     switch (keyCode) {
       case KeyEvent.KEYCODE_BACK:
         if (source == IntentSource.NATIVE_APP_INTENT) {
+          if (getIntent().getBooleanExtra(Intents.Scan.DONT_CLOSE_ON_BACK, false)) {
+            return true;
+          }
+
           setResult(RESULT_CANCELED);
           finish();
           return true;
